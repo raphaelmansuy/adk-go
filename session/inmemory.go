@@ -291,7 +291,6 @@ func (s *inMemoryService) List(ctx context.Context, req *ListRequest) (*ListResp
 	}, nil
 }
 
-
 func (s *inMemoryService) Delete(ctx context.Context, req *DeleteRequest) error {
 	appName, userID, sessionID := req.AppName, req.UserID, req.SessionID
 	if appName == "" || userID == "" || sessionID == "" {
@@ -347,7 +346,7 @@ func (s *inMemoryService) AppendEvent(ctx context.Context, curSession Session, e
 	// update the in-memory session service
 	stored_session.events = append(stored_session.events, event)
 	stored_session.updatedAt = event.Timestamp
-	
+
 	// COMPACTION FEATURE MODIFICATION NEEDED:
 	// When session compaction is enabled, events with Actions.Compaction set indicate that
 	// a range of previous events have been summarized and compressed. These compaction events:
