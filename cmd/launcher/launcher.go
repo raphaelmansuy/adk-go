@@ -21,6 +21,7 @@ import (
 	"github.com/a2aproject/a2a-go/a2asrv"
 	"google.golang.org/adk/agent"
 	"google.golang.org/adk/artifact"
+	"google.golang.org/adk/compaction"
 	"google.golang.org/adk/memory"
 	"google.golang.org/adk/session"
 )
@@ -53,9 +54,10 @@ type SubLauncher interface {
 
 // Config contains parameters for web & console execution: sessions, artifacts, agents etc
 type Config struct {
-	SessionService  session.Service
-	ArtifactService artifact.Service
-	MemoryService   memory.Service
-	AgentLoader     agent.Loader
-	A2AOptions      []a2asrv.RequestHandlerOption
+	SessionService   session.Service
+	ArtifactService  artifact.Service
+	MemoryService    memory.Service
+	AgentLoader      agent.Loader
+	A2AOptions       []a2asrv.RequestHandlerOption
+	CompactionConfig *compaction.Config
 }
